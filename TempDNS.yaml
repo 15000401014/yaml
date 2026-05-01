@@ -14,6 +14,19 @@ hosts:
   vmesh.a208.ottcn.com: 36.155.98.104
   app-sc.miguvideo.com: 36.155.98.104
 
+proxies:
+  - name: dummy
+    type: socks5
+    server: 127.0.0.1
+    port: 65535
+
+proxy-groups:
+  - name: PROXY
+    type: select
+    proxies:
+      - dummy
+      - DIRECT
+
 rules:
   - DOMAIN,vmesh.a208.ottcn.com,DIRECT
   - DOMAIN,app-sc.miguvideo.com,DIRECT
